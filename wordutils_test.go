@@ -57,3 +57,22 @@ func TestWordJumbleUnicode(t *testing.T) {
 		t.Errorf("Jumbled unicode word length mismatch: got %d, want %d", utf8.RuneCountInString(jumbled), utf8.RuneCountInString(word))
 	}
 }
+
+func TestReverseWord(t *testing.T) {
+	cases := []struct {
+		in     string
+		expect string
+	}{
+		{"abc", "cba"},
+		{"racecar", "racecar"},
+		{"Go!", "!oG"},
+		{"héllo", "olléh"},
+		{"", ""},
+	}
+	for _, c := range cases {
+		got := ReverseWord(c.in)
+		if got != c.expect {
+			t.Errorf("ReverseWord(%q) = %q; want %q", c.in, got, c.expect)
+		}
+	}
+}
