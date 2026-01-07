@@ -76,3 +76,22 @@ func TestReverseWord(t *testing.T) {
 		}
 	}
 }
+
+func TestRemoveSpaces(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected string
+	}{
+		{"hello world", "helloworld"},
+		{" Go  Lang ", "GoLang"},
+		{"no_spaces", "no_spaces"},
+		{"   ", ""},
+		{"a b c d", "abcd"},
+	}
+	for _, tt := range tests {
+		result := RemoveSpaces(tt.input)
+		if result != tt.expected {
+			t.Errorf("RemoveSpaces(%q) = %q; want %q", tt.input, result, tt.expected)
+		}
+	}
+}

@@ -46,3 +46,12 @@ func ReverseWord(word string) string {
 	}
 	return string(runes)
 }
+
+// RemoveSpaces returns a new string with all spaces removed from the input word.
+// Example:
+//
+//	RemoveSpaces("hello world") // returns "helloworld"
+//	RemoveSpaces(" Go  Lang ") // returns "GoLang"
+func RemoveSpaces(word string) string {
+	return strings.ReplaceAll(word, " ", "")
+}
